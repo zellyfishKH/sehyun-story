@@ -1,0 +1,26 @@
+{
+  "name": "\uc138\ud604\uc774 \ud0a4\uc6b0\uae30",
+  "short_name": "\uc138\ud604\uc774",
+  "description": "\uac00\uc871 \ucd94\uc5b5 \ud034\uc988\uc640 \uc138\ud604\uc774 \uc721\uc131 \uac8c\uc784",
+  "lang": "ko-KR",
+  "start_url": "./sehyeon-mvp.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#111329",
+  "theme_color": "#111329",
+  "icons": [
+    {
+      "src": "assets/pwa/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/pwa/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
