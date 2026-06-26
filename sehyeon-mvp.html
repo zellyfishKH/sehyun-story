@@ -2127,7 +2127,7 @@
       min-height: 0;
       background:
         linear-gradient(180deg, rgba(5, 7, 19, 0.04), rgba(5, 7, 19, 0.06)),
-        url("assets/title/title_hero_reference.png") center top / cover no-repeat;
+        url("assets/title/title_hero_reference.webp") center top / cover no-repeat;
       display: grid;
       grid-template-rows: 1fr auto;
       align-items: end;
@@ -4486,6 +4486,33 @@
         drop-shadow(0 0 14px rgba(255, 230, 98, 0.52))
         drop-shadow(0 0 22px rgba(76, 223, 255, 0.46)) !important;
       animation: finalSuperReveal 2.3s ease-out forwards, superBreathe 1.85s ease-in-out 2.3s infinite !important;
+      cursor: pointer !important;
+      pointer-events: auto !important;
+      transition: opacity 0.58s ease, filter 0.58s ease !important;
+      user-select: none !important;
+    }
+
+    .ending-screen.ending-final.super-shown .super-image.omega-fade-out {
+      opacity: 0 !important;
+      filter:
+        brightness(1.8)
+        blur(2px)
+        drop-shadow(0 0 30px rgba(255, 255, 255, 0.88)) !important;
+    }
+
+    .ending-screen.ending-final.super-shown .super-image.omega-sehyeon {
+      width: min(122%, 468px) !important;
+      animation: omegaSehyeonReveal 0.9s ease-out forwards, superBreathe 1.65s ease-in-out 0.9s infinite !important;
+      filter:
+        drop-shadow(0 20px 20px rgba(0, 0, 0, 0.68))
+        drop-shadow(0 0 18px rgba(255, 255, 255, 0.66))
+        drop-shadow(0 0 32px rgba(76, 223, 255, 0.62)) !important;
+    }
+
+    @keyframes omegaSehyeonReveal {
+      0% { opacity: 0; transform: translateY(18px) scale(0.96); filter: brightness(2.1) blur(2px); }
+      58% { opacity: 1; transform: translateY(-6px) scale(1.04); }
+      100% { opacity: 1; transform: translateY(-2px) scale(1); }
     }
 
     .ending-screen.ending-final .ending-message.final-copy {
@@ -4732,7 +4759,7 @@
           <img class="ending-lightning lightning-right" src="assets/care/ending_lightning_burst.png" alt="" aria-hidden="true" />
           <img class="ending-flash" src="assets/care/ending_white_flash.png" alt="" aria-hidden="true" />
           <img class="super-aura" src="assets/care/super_aura_flame.webp" alt="" aria-hidden="true" />
-          <img class="super-image" src="assets/care/super_sehyeon_final_source_transparent.webp" alt="슈퍼 세현이" />
+          <img class="super-image" src="assets/care/super_sehyeon_final_source_transparent.webp" data-super-src="assets/care/super_sehyeon_final_source_transparent.webp" data-omega-src="assets/care/omega_sehyeon.webp" alt="슈퍼 세현이" />
         </div>
       </div>
       <div id="endingMessage" class="ending-message" role="dialog" aria-live="polite">
@@ -4846,8 +4873,8 @@
           dialogDelays: [600, 600, 400],
           choices: [
             "① 4월 - 6월 - 8월 - 10월",
-            "② 4월 - 7월 - 8월 - 12월",
-            "③ 4월 - 7월 - 7월 - 12월",
+            "② 4월 - 6월 - 8월 - 12월",
+            "③ 4월 - 7월 - 8월 - 12월",
             "④ 4월 - 6월 - 7월 - 12월",
             "⑤ 4월 - 7월 - 8월 - 11월"
           ],
@@ -4871,11 +4898,11 @@
           dialog: ["이건 서비스 문제야!", "저 날 아빠는 과연 자고 있었을까?"],
           dialogDelay: 500,
           choices: [
-            "① 응. 완전 자고 있었어.",
-            "② 아니? 그럴리가"
+            "① 응. 쿨~쿨 자고 있었어.",
+            "② 아니? 아빠가 뭐 머리만 닿으면 자는줄 알아?"
           ],
           answerIndex: 0,
-          correctDialog: ["정답!", "맞아!\n나는 열심히 자고 있었는데\n아빠도 같이 자고 있었어."],
+          correctDialog: ["맞아!", "아빠는 머리 닿으면 자는 편이야!"],
           correctDelay: 500,
           correctEffect: "sleepLaugh",
           wrongDialog: ["아니야!", "아빠는 완전 자고 있었어!"],
@@ -4887,7 +4914,8 @@
           imageLabel: "quiz5_default.png",
           image: {
             default: "assets/quiz/generated/quiz5_default.webp",
-            wrong: "assets/quiz/generated/quiz5_wrong.webp",
+            wrong: "assets/quiz/generated/quiz5_wrong_first.webp",
+            wrongAgain: "assets/quiz/generated/quiz5_wrong_later.webp",
             correct: "assets/quiz/generated/quiz5_default.webp"
           },
           question: "다음 중 엄마가 좋아하는 음식은?",
@@ -4897,13 +4925,13 @@
           ],
           dialogDelay: 500,
           choices: [
-            "① 삼겹살",
-            "② 돈까스",
-            "③ 제육볶음",
-            "④ 육회",
-            "⑤ 시저샐러드"
+            "① 겨자 매실청 코울슬로 🥗🌿",
+            "② 불고기 소스 콩고기 스테이크 🥩❌🌱",
+            "③ 당근 케일 스무디 🥕🥬🥤",
+            "④ 브로콜리 김치 🥦🌶️",
+            "⑤ 제육볶음"
           ],
-          answerIndexes: [0, 1, 2, 3],
+          answerIndex: 4,
           correctDialog: ["정답!\n엄마는 육식파!!! 😎"],
           correctEffect: "sparkleOnly",
           wrongDialog: ["당신 누구야!", "엄마가 채소를?!\n말도 안돼🥵!!"],
@@ -5013,6 +5041,7 @@
       quizIndex: 0,
       quizLocked: false,
       quizImageMode: "default",
+      quizWrongCounts: {},
       lives: gameData.maxLives,
       score: 0,
       lastActionId: null,
@@ -5022,6 +5051,8 @@
       endingTimer: null,
       endingIndex: 0,
       endingFinalShown: false,
+      omegaClickCount: 0,
+      omegaEndingShown: false,
       completionStarted: false
     };
 
@@ -5061,6 +5092,7 @@
     const endingMessage = document.getElementById("endingMessage");
     const endingOk = document.getElementById("endingOk");
     const endingText = endingMessage.querySelector("p");
+    const superImage = document.querySelector(".super-image");
     const endingLines = [
       "엄마가 매일 걱정하던 거,\n나 다 알고 있었어.",
       "엄마가 나를 믿어준 만큼\n나도 씩씩하게 자라고 있어.",
@@ -5083,6 +5115,7 @@
     function resetGame() {
       state.quizIndex = 0;
       state.lives = gameData.maxLives;
+      state.quizWrongCounts = {};
       state.score = 0;
       state.lastActionId = null;
       state.messageCursor = {};
@@ -5091,6 +5124,7 @@
       state.completionStarted = false;
       state.endingIndex = 0;
       state.endingFinalShown = false;
+      resetOmegaEnding();
       clearEndingTimer();
       hideEndingMessage();
       renderQuiz();
@@ -5103,6 +5137,7 @@
       state.quizIndex = 0;
       state.quizLocked = false;
       state.lives = gameData.maxLives;
+      state.quizWrongCounts = {};
       renderQuiz();
       showScreen("quiz");
     }
@@ -5319,8 +5354,10 @@
       }
 
       const choiceReaction = quiz.wrongByChoice ? quiz.wrongByChoice[index] : null;
+      const wrongCount = (state.quizWrongCounts[state.quizIndex] || 0) + 1;
+      state.quizWrongCounts[state.quizIndex] = wrongCount;
       clearQuizEffect();
-      state.quizImageMode = "wrong";
+      state.quizImageMode = wrongCount >= 2 && quiz.image && quiz.image.wrongAgain ? "wrongAgain" : "wrong";
       renderQuizImage();
       quizBaby.className = "baby quiz-baby face-disappointed disappointed";
       if (choiceReaction && choiceReaction.effect) {
@@ -5580,6 +5617,7 @@
       clearEndingTimer();
       state.endingIndex = 0;
       state.endingFinalShown = false;
+      resetOmegaEnding();
       screens.ending.classList.remove("ending-final", "super-warmup", "super-shown");
       screens.ending.classList.add("ending-intro");
       endingMessage.classList.remove("fade-out", "final-copy");
@@ -5626,10 +5664,46 @@
       }, 2950);
     }
 
+    function resetOmegaEnding() {
+      state.omegaClickCount = 0;
+      state.omegaEndingShown = false;
+      if (!superImage) {
+        return;
+      }
+      superImage.classList.remove("omega-fade-out", "omega-sehyeon");
+      if (superImage.dataset.superSrc) {
+        superImage.src = superImage.dataset.superSrc;
+      }
+      superImage.alt = "슈퍼 세현이";
+    }
+
+    function handleSuperImageClick() {
+      if (state.screen !== "ending" || !state.endingFinalShown || state.omegaEndingShown || !superImage) {
+        return;
+      }
+
+      state.omegaClickCount += 1;
+      if (state.omegaClickCount < 20) {
+        return;
+      }
+
+      state.omegaEndingShown = true;
+      superImage.classList.add("omega-fade-out");
+      window.setTimeout(() => {
+        superImage.src = superImage.dataset.omegaSrc || superImage.src;
+        superImage.alt = "오메가세현";
+        superImage.classList.remove("omega-fade-out");
+        superImage.classList.add("omega-sehyeon");
+        endingText.textContent = "앗!!! 너무 많은 응원을 받아서\n초초초X100 강해져버렸어!!!";
+        endingMessage.classList.add("show", "final-copy");
+      }, 620);
+    }
+
     function hideEndingMessage() {
       endingMessage.classList.remove("show", "fade-out", "final-copy");
       screens.ending.classList.remove("ending-intro", "ending-final", "super-warmup", "super-shown");
       endingOk.hidden = false;
+      resetOmegaEnding();
     }
     function renderBooks() {
       const colors = ["#e94e4e", "#ffd95c", "#63b77d", "#5f95d8", "#ff9e66", "#a779d9"];
@@ -5651,6 +5725,7 @@
       }
     });
     endingOk.addEventListener("click", revealSuperEnding);
+    superImage.addEventListener("click", handleSuperImageClick);
 
     document.querySelectorAll("[data-start]").forEach((button) => {
       button.addEventListener("click", startGame);

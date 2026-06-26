@@ -1,4 +1,4 @@
-const CACHE_NAME = "sehyeon-grow-v1";
+const CACHE_NAME = "sehyeon-grow-v3";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -7,7 +7,8 @@ const CORE_ASSETS = [
   "./assets/pwa/icon-192.png",
   "./assets/pwa/icon-512.png",
   "./assets/title/title_sehyun_story_bg.webp",
-  "./assets/title/title_game_start_button_alpha.png"
+  "./assets/title/title_game_start_button_alpha.png",
+  "./assets/care/omega_sehyeon.webp"
 ];
 
 self.addEventListener("install", (event) => {
